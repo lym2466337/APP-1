@@ -140,4 +140,4 @@ class Base():
 
 if __name__ == '__main__':
     base = Base(getDriver())
-    base.driver.get_screenshot_as_file("D:\\Program Files\\code\APP-1\\xxxx.jpg")
+    base.swipe_up()

@@ -22,10 +22,10 @@ class Test_Login():
         #点击同意协议按钮
         self.login_obj.xieyi()
         #左滑2次
-        sleep(1)
+        sleep(2)
         for i in range(2):
             print("开始滑动")
-            self.login_obj.swipe_up()
+            self.login_obj.swipe(500,300,100,300,600)
         #点击立即体验
         self.login_obj.tiyan()
 
@@ -59,5 +59,5 @@ class Test_Login():
         self.login_obj.assert_login_statu()
 
     def teardown_class(self):
-        self.login_obj.log_out()
+        #self.login_obj.log_out()
         self.driver.quit()
