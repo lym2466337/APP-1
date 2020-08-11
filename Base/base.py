@@ -71,7 +71,7 @@ class Base():
         return (width, height)
 
     # 按坐标滑动
-    def swipe(self, start_x, start_y, end_x, end_y, duration=1000):
+    def swipe(self, start_x, start_y, end_x, end_y, duration=500):
         self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
     # 按元素滑动到页面结束
@@ -86,22 +86,22 @@ class Base():
     def swipe_left(self):
         wight= self.getSize()[0]
         height= self.getSize()[1]
-        self.swipe(wight*4/5,height*1/5,wight*1/5,height*1/5)
+        self.swipe(wight*8/10,height*1/10,wight*1/10,height*1/10)
     # 屏幕右滑
     def swipe_right(self):
         wight = self.getSize()[0]
         height = self.getSize()[1]
-        self.swipe(wight * 1 / 5, height*1/5, wight * 4 / 5, height*1/5)
+        self.swipe(wight * 1 / 10, height*1/10, wight * 8 / 10, height*1/10)
     # 屏幕上划
     def swipe_up(self):
         wight = self.getSize()[0]
         height = self.getSize()[1]
-        self.swipe(wight*1/5 , height* 4 / 5, wight*1/5 , height* 1 / 5)
+        self.swipe(wight*1/10 , height* 8 / 10, wight*1/10 , height* 1 / 10)
     # 屏幕下划
     def swipe_down(self):
         wight = self.getSize()[0]
         height = self.getSize()[1]
-        self.swipe(wight*1/5 , height* 1 / 5, wight*1/5 , height* 4 / 5)
+        self.swipe(wight*1/10 , height* 1 / 10, wight*1/10 , height* 8 / 10)
 
 
     # 获取截屏
@@ -140,4 +140,14 @@ class Base():
 
 if __name__ == '__main__':
     base = Base(getDriver())
+    base.driver.implicitly_wait(2000)
+    base.click((By.XPATH,"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.Button[2]/android.widget.TextView"))
+    sleep(3)
+    base.swipe_down()
+    sleep(3)
     base.swipe_up()
+    sleep(3)
+    base.swipe_left()
+    sleep(3)
+    base.swipe_right()
+

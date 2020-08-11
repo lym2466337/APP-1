@@ -14,7 +14,7 @@ def getDriver():
   # 'appActivity': '.Settings',
         'unicodeKeyboard': True, # 使用自带输入法，输入中文时填True
         'resetKeyboard': True, # 执行完程序恢复原来输入法
-        #'noReset': True,       # 不要重置App
+        'noReset': True,       # 不要重置App
         'automationName' : 'UiAutomator2'
     }
     return webdriver.Remote("http://localhost:4723/wd/hub", desired_caps)
