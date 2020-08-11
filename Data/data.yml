@@ -14,9 +14,11 @@ Login_test1:
   login_test_06: #帐号位数少于11位
     name: 2314
     pwd: 5566
+
   login_test_07: #帐号位数10位
     name: 1802394234
     pwd: 5566
+
   login_test_08: #帐号位数12位
     name: 180239423422
     pwd: 5566
@@ -24,21 +26,27 @@ Login_test1:
   login_test_09: #验证码输入超过4位
     name: 13324233344
     pwd: 234447
+
   login_test_10: #验证码输入英文
     name: 13324233344
     pwd: "we23"
+
   login_test_11: #验证码输入特殊字符
     name: 13324233344
     pwd: "@234"
+
   login_test_12: #验证码输入小于4位
     name: 13324233344
     pwd: 23
+
   login_test_13: #验证码输入3位
-    name: 13324233344
+    name: 13324233234
     pwd: 233
+
   login_test_14: #验证码输入5位
     name: 13324233344
     pwd: 23234
+
   login_test_15: #错误验证码
     name: 18050388296
     pwd: 2344
@@ -56,7 +64,7 @@ DriverConfig:
     appActivity: '.Settings'  # 启动Activity名称
     unicodeKeyboard: True # 使用自带输入法，输入中文时填True
     resetKeyboard: True # 执行完程序恢复原来输入法
-    noReset: True # 不要重置App
+    noReset: False # 不要重置App
     automationName: 'UiAutomator2'
 
   config_2:

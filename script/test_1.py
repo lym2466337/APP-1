@@ -12,7 +12,7 @@ login_list=[("18050388296","5566")]
 class Test_Login():
 
     def setup_class(self):
-        self.driver= init_driver.get_driver_by_config("config_2")
+        self.driver= init_driver.get_driver_by_config("config_1")
         self.login_obj = Page(self.driver).login_obj()
 
     #@pytest.mark.skipif(2<0)
