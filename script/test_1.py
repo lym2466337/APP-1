@@ -18,7 +18,7 @@ class Test:
         self.login_obj = Page(self.driver).login_obj()
 
 
-    @pytest.mark.skipif(1<0)
+    #@pytest.mark.skipif(1<0)
     @pytest.mark.parametrize("username,pwd",login_list)
     #@allure.feature("首次登录")
     def test_1(self,username,pwd):
