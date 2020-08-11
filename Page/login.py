@@ -31,11 +31,7 @@ class Login(Base):
         self.input((By.CLASS_NAME,"android.widget.EditText"),pwd,1)
         print("输入密码")
     def xieyigouxuan(self):
-        self.click((By.XPATH,"/hierarchy/android.widget.FrameLayout/"
-                             "android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout"
-                             "/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/"
-                             "android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/"
-                             "android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/"
+        self.click((By.XPATH,"//android.view.ViewGroup/"
                              "android.view.ViewGroup[2]/android.widget.ImageView"))
         print("勾选协议")
     def login_in(self):

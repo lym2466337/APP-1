@@ -1,4 +1,7 @@
+import os
 from appium import webdriver
+import yaml
+from rootpath import rootpath
 def getDriver():
     desired_caps = {
         'platformName': 'Android', # 被测手机是安卓
@@ -16,6 +19,28 @@ def getDriver():
     }
     return webdriver.Remote("http://localhost:4723/wd/hub", desired_caps)
 
+def get_driver_by_config(config_name):
+    filepath = rootpath+os.sep+"Data"+os.sep+"data.yml"
+    print(filepath)
+    with open(filepath,'r',encoding='utf-8') as f:
+        data= yaml.load(f)['DriverConfig']
+    data_dir={}
+    data_dir=data[config_name]
+
+    desired_caps = {
+        'platformName': data_dir['platformName'],
+        'platformVersion': data_dir['platformVersion'],
+        'deviceName': data_dir['deviceName'],
+        'appPackage': data_dir['appPackage'],
+        'appActivity': data_dir['appActivity'],
+        'unicodeKeyboard': data_dir['unicodeKeyboard'],
+        'resetKeyboard': data_dir['resetKeyboard'],
+        'noReset': data_dir['noReset'],
+        'automationName': data_dir['automationName']
+    }
+    print(desired_caps)
+    return webdriver.Remote("http://localhost:4723/wd/hub", desired_caps)
 
 if __name__ == '__main__':
-    driver=getDriver()
+    get_driver_by_config("config_1")
+

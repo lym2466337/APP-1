@@ -107,14 +107,13 @@ class Base():
     # 获取截屏
     def get_screenshot(self, fuc=0, *filename):
         if fuc==1:
-            filepath= rootpath+os.sep+"error_shoot"+os.sep+filename+".jpg"
+            filepath= rootpath+os.sep+"error_shoot"+os.sep+filename+".png"
         else:
-            filepath= rootpath+os.sep+"error_shoot"+os.sep+(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))+".jpg"
+            filepath= rootpath+os.sep+"error_shoot"+os.sep+(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))+".png"
         self.driver.get_screenshot_as_file(filepath)
 
     # 帐号登出
     def log_out(self):
-
         try:
             # el= self.find_ele(("UIcode",("new UiSelector().text('我的').className('android.widget.TextView')")))
             self.click((By.XPATH, "//android.widget.Button[5]/android.widget.TextView[@text='我的']"))

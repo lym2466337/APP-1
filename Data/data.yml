@@ -1,13 +1,71 @@
 Login_test1:
-  login_test_002:
-    name: 1982397432423
+  login_test_02: #帐号不是1开头的
+    name: 29823974322
     pwd: 2334
-  login_test_003:
-    name: 13324233344
-    pwd: 23444
-  login_test_004:
+
+  login_test_04: #帐号输入英文
     name: '2323deee'
     pwd: 5566
-  login_test_001:
+
+  login_test_05: #帐号输入特殊字符
+    name: '1802384@#@@'
+    pwd: 5566
+
+  login_test_06: #帐号位数少于11位
+    name: 2314
+    pwd: 5566
+  login_test_07: #帐号位数10位
+    name: 1802394234
+    pwd: 5566
+  login_test_08: #帐号位数12位
+    name: 180239423422
+    pwd: 5566
+
+  login_test_09: #验证码输入超过4位
+    name: 13324233344
+    pwd: 234447
+  login_test_10: #验证码输入英文
+    name: 13324233344
+    pwd: "we23"
+  login_test_11: #验证码输入特殊字符
+    name: 13324233344
+    pwd: "@234"
+  login_test_12: #验证码输入小于4位
+    name: 13324233344
+    pwd: 23
+  login_test_13: #验证码输入3位
+    name: 13324233344
+    pwd: 233
+  login_test_14: #验证码输入5位
+    name: 13324233344
+    pwd: 23234
+  login_test_15: #错误验证码
+    name: 18050388296
+    pwd: 2344
+
+  login_test_01: #正确帐号密码
     name: 18050388296
     pwd: 5566
+
+DriverConfig:
+  config_1:
+    platformName: 'Android' # 被测手机是安卓
+    platformVersion: '7.1'  # 手机安卓版本
+    deviceName: 'xxx'  # 设备名，安卓手机可以随意填写
+    appPackage: 'com.android.settings'  # 启动APP Package名称
+    appActivity: '.Settings'  # 启动Activity名称
+    unicodeKeyboard: True # 使用自带输入法，输入中文时填True
+    resetKeyboard: True # 执行完程序恢复原来输入法
+    noReset: True # 不要重置App
+    automationName: 'UiAutomator2'
+
+  config_2:
+    platformName: 'Android'  # 被测手机是安卓
+    platformVersion: '7.1'  # 手机安卓版本
+    deviceName: 'xxx'  # 设备名，安卓手机可以随意填写
+    appPackage: 'com.jlbao.app'  # 启动APP Package名称
+    appActivity: '.MainActivity'  # 启动Activity名称
+    unicodeKeyboard: True # 使用自带输入法，输入中文时填True
+    resetKeyboard: True # 执行完程序恢复原来输入法
+    noReset: True # 不要重置App
+    automationName: 'UiAutomator2'
