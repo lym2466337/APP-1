@@ -109,7 +109,7 @@ class Base():
         if fuc==1:
             filepath= rootpath+os.sep+"error_shoot"+os.sep+filename+".jpg"
         else:
-            filepath= rootpath+(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))+".jpg"
+            filepath= rootpath+os.sep+"error_shoot"+os.sep+(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))+".jpg"
         self.driver.get_screenshot_as_file(filepath)
 
     # 帐号登出
