@@ -1,9 +1,9 @@
 from time import sleep
-
+import time,os
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from Base.init_driver import getDriver
-
+from rootpath import rootpath
 
 class Base():
     # #单例模式
@@ -105,32 +105,40 @@ class Base():
 
 
     # 获取截屏
-    def get_screenshot(self, filename):
-        self.driver.get_screenshot_as_file(filename)
+    def get_screenshot(self, fuc=0, *filename):
+        if fuc==1:
+            filepath= rootpath+os.sep+"error_shoot"+os.sep+filename+".jpg"
+        else:
+            filepath= rootpath+(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))+".jpg"
+        self.driver.get_screenshot_as_file(filepath)
 
     # 帐号登出
     def log_out(self):
-        # el= self.find_ele(("UIcode",("new UiSelector().text('我的').className('android.widget.TextView')")))
-        self.click((By.XPATH, "//android.widget.Button[5]/android.widget.TextView[@text='我的']"))
-        sleep(2)
 
-        # w = self.getSize()[0]
-        # h = self.getSize()[1]
-        # self.swipe(w / 2, h * 4 / 5, w / 2, h * 1 / 5)
-        self.swipe_up()
-        self.click((By.XPATH, "//*[@text='退出登录']"))
-
-        #self.click(("code", "new UiSelector().resourceId(android:id/button1')"))
-
-        self.click((By.ID,"android:id/button1"))
         try:
+            # el= self.find_ele(("UIcode",("new UiSelector().text('我的').className('android.widget.TextView')")))
+            self.click((By.XPATH, "//android.widget.Button[5]/android.widget.TextView[@text='我的']"))
+            sleep(2)
+
+            # w = self.getSize()[0]
+            # h = self.getSize()[1]
+            # self.swipe(w / 2, h * 4 / 5, w / 2, h * 1 / 5)
+            self.swipe_up()
+            self.click((By.XPATH, "//*[@text='退出登录']"))
+
+            # self.click(("code", "new UiSelector().resourceId(android:id/button1')"))
+
+            self.click((By.ID, "android:id/button1"))
             assert self.find_ele((By.XPATH, "//*[@text='登 录']"))
             print("登出成功")
+            self.get_screenshot()
+
         except:
+            self.get_screenshot()
             print("登出失败")
 
 
 
 if __name__ == '__main__':
     base = Base(getDriver())
-
+    base.driver.get_screenshot_as_file("D:\\Program Files\\code\APP-1\\xxxx.jpg")
