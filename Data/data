@@ -1,0 +1,25 @@
+登录页面：
+    帐号栏位：By.CLASSNAME,"android.widget.EditText"
+    密码栏位：By.CLASSNAME,"android.widget.EditText"
+    #会同时查出2个元素后，按索引获取指定元素
+    短信验证码按钮：By.XPATH,"//*[@text='获取手机验证码']"
+    登录按钮：By.XPATH,"//*[@text='登 录']"
+    协议勾选按钮：By.XPATH,"/hierarchy/android.widget.FrameLayout/android."
+                                   "widget.LinearLayout/android.widget.FrameLayout/android.widget."
+                                   "LinearLayout/android.widget.FrameLayout/android.widget."
+                                   "FrameLayout/anadroid.view.ViewGroup/android.view.ViewGroup/android.view."
+                                   "ViewGroup/android.view.ViewGroup/android.view.ViewGroup/"
+                                   "android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/"
+                                   "android.widget.ImageView"
+    协议页面：By.XPATH,"//*[contains(@text='我已登录')]"
+    微信登录：By.XPATH,"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/
+    android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/
+    android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/
+    android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/
+    android.view.ViewGroup[3]/android.view.ViewGroup[4]/android.view.ViewGroup"
+
+切换小区：
+    切换小区按钮：By.XPATH,"//*(@text='切换小区')"
+    切换小区的取消按钮:By.ID,"android:id/button2"
+    切换小区的切换按钮:By.ID,"android:id/button2"
+
