@@ -19,7 +19,7 @@ class Test:
 
 
     #@pytest.mark.skipif(1<0)
-    @pytest.mark.parametrize("username,pwd",login_list)
+    # @pytest.mark.parametrize("username,pwd",login_list)
     #@allure.feature("首次登录")
     def test_1(self,username,pwd):
         #点击同意协议按钮
@@ -31,16 +31,16 @@ class Test:
         #点击立即体验
         self.login_obj.tiyan()
 
-        #@allure.attach("输入登录帐号",username)
-        #输入帐号
-        self.login_obj.input_name(username)
-        #@allure.attach("输入密码",pwd)
-        #输入密码
-        self.login_obj.input_pwd(pwd)
+        # #@allure.attach("输入登录帐号",username)
+        # #输入帐号
+        # self.login_obj.input_name(username)
+        # #@allure.attach("输入密码",pwd)
+        # #输入密码
+        # self.login_obj.input_pwd(pwd)
         #勾选协议
         self.login_obj.xieyigouxuan()
-        #点击登录
-        self.login_obj.login_in()
+        # #点击登录
+        # self.login_obj.login_in()
 
     #使用错误数据登录失败
     #直接传入一个方法，该方法返回列表类型的字典数据
