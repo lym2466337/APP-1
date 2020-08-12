@@ -47,7 +47,7 @@ class Test_Login():
     @allure.step(title="输入账密")
     @allure.severity('Critical')
     # 直接传入一个方法，该方法返回列表类型的字典数据
-    @pytest.mark.parametrize("dir", get_data_2_list("data", "Login_test2"))
+    @pytest.mark.parametrize("dir", get_data_2_list("data", "Login_test1"))
     def test_2(self, dir):
         with allure.step("1.输入账号：{} 2.输入密码：{} 3.点击登录".format(dir["name"],dir["pwd"])):
             username =dir["name"]

@@ -1,4 +1,3 @@
-import Base
 from Page import login,look_look,main_page,news,shopping,my_page
 
 class Page():
