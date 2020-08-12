@@ -55,6 +55,11 @@ Login_test1:
     name: 18050388296
     pwd: 5566
 
+Login_test2:
+  login_test_01: #正确帐号密码
+    name: 18050388296
+    pwd: 5566
+
 DriverConfig:
   config_1:
     platformName: 'Android' # 被测手机是安卓
@@ -66,6 +71,7 @@ DriverConfig:
     resetKeyboard: True # 执行完程序恢复原来输入法
     noReset: False # 不要重置App
     automationName: 'UiAutomator2'
+    skipServerInstallation: True #不重复安装appium uiautomator2.server
 
   config_2:
     platformName: 'Android'  # 被测手机是安卓
@@ -77,3 +83,16 @@ DriverConfig:
     resetKeyboard: True # 执行完程序恢复原来输入法
     noReset: True # 不要重置App
     automationName: 'UiAutomator2'
+    skipServerInstallation: True
+
+  config_3:
+    platformName: 'Android'  # 被测手机是安卓
+    platformVersion: '8.1'  # 手机安卓版本
+    deviceName: 'xxx'  # 设备名，安卓手机可以随意填写
+    appPackage: 'com.jlbao.app'  # 启动APP Package名称
+    appActivity: '.MainActivity'  # 启动Activity名称
+    unicodeKeyboard: True # 使用自带输入法，输入中文时填True
+    resetKeyboard: True # 执行完程序恢复原来输入法
+    noReset: True # 不要重置App
+    automationName: 'UiAutomator2'
+    skipServerInstallation: True

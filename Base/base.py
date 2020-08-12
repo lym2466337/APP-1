@@ -1,8 +1,9 @@
 from time import sleep
 import time,os
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from Base.init_driver import getDriver
+from Base.init_driver import get_driver_by_config
 from rootpath import rootpath
 
 class Base():
@@ -105,49 +106,25 @@ class Base():
 
 
     # 获取截屏
-    def get_screenshot(self, fuc=0, *filename):
+    def get_screenshot(self, fuc=0, filename="error_shoot",image_name=""):
         if fuc==1:
-            filepath= rootpath+os.sep+"error_shoot"+os.sep+filename+".png"
+            filepath= rootpath+os.sep+filename+os.sep+image_name+".png"
         else:
-            filepath= rootpath+os.sep+"error_shoot"+os.sep+(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))+".png"
+            filepath= rootpath+os.sep+filename+os.sep+time.strftime("%Y-%m-%d-%H：%M：%S")+ ".png"
+            print(filepath)
         self.driver.get_screenshot_as_file(filepath)
+        return filepath
 
-    # 帐号登出
-    def log_out(self):
-        try:
-            # el= self.find_ele(("UIcode",("new UiSelector().text('我的').className('android.widget.TextView')")))
-            self.click((By.XPATH, "//android.widget.Button[5]/android.widget.TextView[@text='我的']"))
-            sleep(2)
+    def imp_wait(self,mtime=1000):
+        self.driver.implicitly_wait(mtime)
 
-            # w = self.getSize()[0]
-            # h = self.getSize()[1]
-            # self.swipe(w / 2, h * 4 / 5, w / 2, h * 1 / 5)
-            self.swipe_up()
-            self.click((By.XPATH, "//*[@text='退出登录']"))
+    def sleep_time(self,time=2):
+        sleep(time)
 
-            # self.click(("code", "new UiSelector().resourceId(android:id/button1')"))
-
-            self.click((By.ID, "android:id/button1"))
-            assert self.find_ele((By.XPATH, "//*[@text='登 录']"))
-            print("登出成功")
-            self.get_screenshot()
-
-        except:
-            self.get_screenshot()
-            print("登出失败")
-
-
+    def device_time(self):
+        return self.driver.device_time
 
 if __name__ == '__main__':
-    base = Base(getDriver())
-    base.driver.implicitly_wait(2000)
-    base.click((By.XPATH,"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.Button[2]/android.widget.TextView"))
-    sleep(3)
-    base.swipe_down()
-    sleep(3)
-    base.swipe_up()
-    sleep(3)
-    base.swipe_left()
-    sleep(3)
-    base.swipe_right()
+    base = Base(get_driver_by_config("config_2"))
+    base.get_screenshot()
 

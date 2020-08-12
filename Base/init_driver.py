@@ -15,7 +15,8 @@ def getDriver():
         'unicodeKeyboard': True, # 使用自带输入法，输入中文时填True
         'resetKeyboard': True, # 执行完程序恢复原来输入法
         'noReset': True,       # 不要重置App
-        'automationName' : 'UiAutomator2'
+        'automationName' : 'UiAutomator2',
+        'skipServerInstallation': True
     }
     return webdriver.Remote("http://localhost:4723/wd/hub", desired_caps)
 
@@ -36,7 +37,8 @@ def get_driver_by_config(config_name):
         'unicodeKeyboard': data_dir['unicodeKeyboard'],
         'resetKeyboard': data_dir['resetKeyboard'],
         'noReset': data_dir['noReset'],
-        'automationName': data_dir['automationName']
+        'automationName': data_dir['automationName'],
+        'skipServerInstallation': data_dir['skipServerInstallation']
     }
     print(desired_caps)
     return webdriver.Remote("http://localhost:4723/wd/hub", desired_caps)
