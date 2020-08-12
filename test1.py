@@ -18,12 +18,12 @@ desired_caps = {
   'automationName' : 'UiAutomator2'
 }
 driver = webdriver.Remote("http://localhost:4723/wd/hub", desired_caps)
-driver.implicitly_wait()
+
 print(rootpath+os.sep+"errorshoot"+\
-                     os.sep+ (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))+".jpg")
-
-
-
+                     os.sep+ (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))+".png")
+driver.implicitly_wait()
+driver.device_time
+driver.get_screenshot_as_png()
 
 
 
